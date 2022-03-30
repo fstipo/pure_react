@@ -1,8 +1,12 @@
 import React from 'react';
-import Gretting from './Gretting';
+import Table from './Table';
 
 const App = () => {
-  return <Gretting />;
+  return (
+    <>
+      <Table />
+    </>
+  );
 };
 
 export default App;

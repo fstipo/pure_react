@@ -1,11 +1,13 @@
 import React from 'react';
-import Table from './Table';
+import './App.css';
+import Avatar from './Avatar';
 
 const App = () => {
   return (
-    <>
-      <Table />
-    </>
+    <div className="tweet">
+      <Avatar />
+      Tweet
+    </div>
   );
 };
 

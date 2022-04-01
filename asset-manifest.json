@@ -1,0 +1,13 @@
+{
+  "files": {
+    "main.css": "/pure_react/static/css/main.38cd1544.css",
+    "main.js": "/pure_react/static/js/main.01d09193.js",
+    "index.html": "/pure_react/index.html",
+    "main.38cd1544.css.map": "/pure_react/static/css/main.38cd1544.css.map",
+    "main.01d09193.js.map": "/pure_react/static/js/main.01d09193.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.38cd1544.css",
+    "static/js/main.01d09193.js"
+  ]
+}

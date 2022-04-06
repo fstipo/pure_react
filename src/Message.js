@@ -1,7 +1,7 @@
 import React from 'react';
 
-const Message = () => {
-  return <div className="message">This is less than 140 characters.</div>;
+const Message = ({ text }) => {
+  return <div className="message">{text}</div>;
 };
 
 export default Message;

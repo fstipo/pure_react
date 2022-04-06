@@ -1,3 +1,11 @@
+.container {
+  display: flex;
+  justify-content: center;
+}
+
+.column {
+  flex-direction: column;
+}
 .tweet {
   display: flex;
   border: 1px solid #ccc;
@@ -39,4 +47,8 @@
 
 .buttons i {
   width: 80px;
+}
+
+.link {
+  margin-right: 5px;
 }

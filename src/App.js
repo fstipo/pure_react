@@ -1,35 +1,53 @@
 import React from 'react';
 import './App.css';
+
 import Avatar from './Avatar';
 import Message from './Message';
 import Author from './Author';
-import { Routes, Route, Link } from 'react-router-dom';
 import Home from './Pages/Home';
 import About from './Pages/About';
-
-const Time = () => <span className="time">3h ago</span>;
-
-const ReplayButton = () => <i className="fa fa-reply reply-button" />;
-
-const RetweetButton = () => <i className="fa fa-retweet retweet-button" />;
-
-const LikeButton = () => <i className="fa fa-heart like-button" />;
-
-const MoreOptionsButton = () => (
-  <i className="fa fa-ellipsis-h more-options-button" />
-);
-
+import Time from './Time';
+import { Routes, Route, Link } from 'react-router-dom';
 const testTweet = {
   message: 'Something about cats.',
   gravatar: 'xyz',
   author: {
     handle: 'catperson',
-    name: 'IAMA Cat Person',
+    name: '😊',
   },
   likes: 2,
-  retweets: 0,
+  retweets: 15,
   timestamp: '2016-07-30 21:24:37',
 };
+
+function getRetweetButtonCount(count) {
+  if (count > 0) {
+    return <span className="retweet-count">{count}</span>;
+  } else {
+    return null;
+  }
+}
+const ReplayButton = () => <i className="fa fa-reply reply-button" />;
+
+const RetweetButton = ({ count }) => {
+  return (
+    <span className="retweet-button">
+      <i className="fa fa-retweet retweet-button" />
+      {getRetweetButtonCount(count)}
+    </span>
+  );
+};
+
+const LikeButton = ({ count }) => (
+  <span className="like-button">
+    <i className="fa fa-heart" />
+    {count > 0 && <span className="like-count">{count}</span>}
+  </span>
+);
+
+const MoreOptionsButton = () => (
+  <i className="fa fa-ellipsis-h more-options-button" />
+);
 
 const App = ({ tweet = testTweet }) => {
   return (
@@ -38,14 +56,14 @@ const App = ({ tweet = testTweet }) => {
         <div className="tweet">
           <Avatar hash={tweet.gravatar} />
           <div className="content">
-            <Author />
+            <Author author={tweet.author} />
             <Time />
             <Message text={tweet.message} />
 
             <div className="buttons">
               <ReplayButton />
-              <RetweetButton />
-              <LikeButton />
+              <RetweetButton count={tweet.retweets} />
+              <LikeButton count={tweet.likes} />
               <MoreOptionsButton />
             </div>
           </div>
